@@ -12,7 +12,7 @@ body {
     text-align: center;
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 600px) {
     .sidebar {
         position: absolute;
         left: 0;
@@ -31,26 +31,35 @@ body {
         margin: auto;
     }
 
-    .sidebar .name {
+    .sidebar .personal-information {
         position: absolute;
-        left: 220px;
-        top: 20px;
+        right: 0px;
+        top: 30px;
     }
 
-    .sidebar .title {
-        position: absolute;
-        left: 220px;
-        top: 50px;
+    .content .content-block h1 {
+        font-size: 1.5em;
+        font-weight: bolder;
     }
 
-    .sidebar .contact-items {
-        position: absolute;
-        left: 200px;
-        top: 80px;
+    .content .content-block h2 {
+        font-size: 1.17em;
+        font-weight: bolder;
     }
+
+    .content .content-block h3 {
+        font-size: 1em;
+        font-weight: bolder;
+    }
+
+    .content .content-block h4 {
+        font-size: 0.83em;
+        font-weight: bolder;
+    }
+
 }
 
-@media only screen and (min-width: 980px) {
+@media only screen and (min-width: 600px) {
     .sidebar {
         position: absolute;
         left: 0;
@@ -67,12 +76,14 @@ body {
         bottom: 0;
         top: 0;
         margin: auto;
+        overflow: scroll;
     }
 }
 
 .sidebar .profile {
     background-color: %lighter%;
-    margin: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
     border-radius: 80px;
     width: 150px;
     height: 150px;
@@ -116,7 +127,7 @@ body {
     color: %darkest%;
     font-family: "Open Sans Condensed";
     font-weight: lighter;
-    overflow: scroll;
+
 }
 
 .content .content-block {

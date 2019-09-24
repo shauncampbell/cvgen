@@ -3,15 +3,14 @@
   <div class="profile">
     <div class="profile-pic"></div>
   </div>
-  <div class="name">{{ data.forename }} {{ data.surname }}</div>
-  <div class="title">Software Engineer</div>
-  <div class="contact-items">
-    <div class="contact-item"><i class="fas fa-home"></i> {{ data.contacts.address.city }}, {{ data.contacts.address.province }}</div>
-    <div class="contact-item" *ngFor="let email of data.contacts.email"><i class="fas fa-envelope"></i> {{ email.recipient }}@{{ email.domain }}</div>
-    <div class="contact-item" *ngFor="let phone of data.contacts.telephone"><i class="fas fa-phone"></i> +{{ phone.number.country }} ({{ phone.number.area}}) {{ phone.number.number }}</div>
-  </div>
-  <div>
-
+  <div class="personal-information">
+    <div class="name">{{ data.forename }} {{ data.surname }}</div>
+    <div class="title">Software Engineer</div>
+    <div class="contact-items">
+      <div class="contact-item"><i class="fas fa-home"></i> {{ data.contacts.address.city }}, {{ data.contacts.address.province }}</div>
+      <div class="contact-item" *ngFor="let email of data.contacts.email"><i class="fas fa-envelope"></i> {{ email.recipient }}@{{ email.domain }}</div>
+      <div class="contact-item" *ngFor="let phone of data.contacts.telephone"><i class="fas fa-phone"></i> +{{ phone.number.country }} ({{ phone.number.area}}) {{ phone.number.number }}</div>
+    </div>
   </div>
 </div>
 <div class="content">
