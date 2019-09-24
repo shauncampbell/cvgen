@@ -5,9 +5,16 @@ import {DataService} from "./data-service.service";
 export interface DataConfigContent {
   forename: String;
   surname: String;
+  about: Array<String>;
+  skills: Array<DataConfigSkill>;
   contacts: DataConfigContacts;
   experience: Array<DataConfigExperience>;
   education: Array<DataConfigEducation>;
+}
+
+export interface DataConfigSkill {
+  category: String;
+  skills: Array<String>;
 }
 
 export interface DataConfigContacts {
@@ -69,6 +76,8 @@ export class AppComponent {
   data: DataConfigContent = {
       forename: "",
       surname: "",
+      about: [],
+      skills: [],
       contacts: {
         address: {
           city: "",

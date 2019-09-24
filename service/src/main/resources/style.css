@@ -142,7 +142,9 @@ body {
 .content .content-block .timeline .timeline-item {
 
 }
-
+.content .content-block .timeline .timeline-item p {
+    margin-left: 20px;
+}
 .content .content-block .timeline h1 {
     color: %darkest%;
     font-family: "Josefin Slab";
