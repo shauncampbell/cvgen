@@ -200,6 +200,7 @@ body {
 }
 .pill {
     background-color: %darker%;
+    display: inline-block;
     color: %lighter%;
     font-family: "Roboto";
     font-size: small;
