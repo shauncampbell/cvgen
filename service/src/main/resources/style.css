@@ -1,0 +1,155 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Chivo:300,300i,400,400i,700,700i,900,900i|Saira+Extra+Condensed:100,200,300,400,500,600,700,800|Saira:100,200,300,400,500,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Open+Sans+Condensed:300|Roboto&display=swap');
+@font-face {
+    font-family: "Poly Regular";
+    src: url("assets/Poly-Regular.otf") format("opentype");
+    /*src: url('https://fonts.googleapis.com/css?family=Chivo:300,300i,400,400i,700,700i,900,900i|Saira+Extra+Condensed:100,200,300,400,500,600,700,800|Saira:100,200,300,400,500,600,700,800') format("opentype");*/
+}
+
+
+body {
+    background-color: %lighter%;
+}
+
+.sidebar {
+    background-color: %darkest%;
+    font-family: "Josefin Slab";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 200px;
+    text-align: center;
+}
+
+.sidebar .profile {
+    background-color: %lighter%;
+    margin: 20px;
+    border-radius: 80px;
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+}
+.sidebar .profile .profile-pic {
+    width: 150px;
+    height: 150px;
+    margin: 0;
+    padding: 0;
+    border-radius: 75px;
+    background-color: %lighter%;
+    background-image: url("%profilePicture%");
+}
+
+.sidebar .name {
+    font-size: x-large;
+    color: %lighter%;
+}
+
+.sidebar .title {
+    font-size: large;
+    color: %light%;
+}
+
+.sidebar .contact-items {
+    width: 150px;
+    margin: 20px;
+    text-align: left;
+
+    font-family: "Open Sans Condensed";
+}
+.sidebar .contact-items .contact-item {
+    font-size: medium;
+    color: %lighter%;
+}
+
+.content {
+    position: absolute;
+    left: 200px;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    padding: 20px;
+    color: %darkest%;
+    font-family: "Open Sans Condensed";
+    font-weight: lighter;
+    overflow: scroll;
+}
+
+.content .content-block {
+}
+
+.content .content-block .timeline {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px dotted %light%;
+}
+
+.content .content-block .timeline .timeline-item {
+
+}
+
+.content .content-block .timeline h1 {
+    color: %darkest%;
+    font-family: "Josefin Slab";
+    margin-left: 20px;
+}
+
+.content .content-block h2 {
+    color: %darker%;
+    font-family: "Josefin Slab";
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+.content .content-block h3 {
+    color: %normal%;
+    font-family: "Josefin Slab";
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+.content .content-block h4 {
+    color: %darker%;
+    font-family: "Open Sans Condensed";
+    margin-left: 20px;
+    margin-top: 5px;
+    padding-top: 0;
+    margin-bottom: 0;
+}
+
+.timeline-point {
+    background-color: %light%;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    float: left;
+    position: relative;
+    left: -20px;
+    margin: 0;
+}
+
+.timeline-point-fill {
+    background-color: %lighter%;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.pill-list {
+    margin-left: 20px;
+}
+.pill {
+    background-color: %darker%;
+    color: %lighter%;
+    font-family: "Roboto";
+    font-size: small;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 2px;
+}
