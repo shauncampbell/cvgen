@@ -1,12 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Chivo:300,300i,400,400i,700,700i,900,900i|Saira+Extra+Condensed:100,200,300,400,500,600,700,800|Saira:100,200,300,400,500,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Open+Sans+Condensed:300|Roboto&display=swap');
-@font-face {
-    font-family: "Poly Regular";
-    src: url("assets/Poly-Regular.otf") format("opentype");
-    /*src: url('https://fonts.googleapis.com/css?family=Chivo:300,300i,400,400i,700,700i,900,900i|Saira+Extra+Condensed:100,200,300,400,500,600,700,800|Saira:100,200,300,400,500,600,700,800') format("opentype");*/
-}
-
 
 body {
     background-color: %lighter%;
@@ -15,13 +9,65 @@ body {
 .sidebar {
     background-color: %darkest%;
     font-family: "Josefin Slab";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    width: 200px;
     text-align: center;
+}
+
+@media only screen and (max-width: 980px) {
+    .sidebar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 200px;
+        margin: auto;
+    }
+
+    .content {
+        position: absolute;
+        left: 0px;
+        right: 0;
+        bottom: 0;
+        top: 200px;
+        margin: auto;
+    }
+
+    .sidebar .name {
+        position: absolute;
+        left: 220px;
+        top: 20px;
+    }
+
+    .sidebar .title {
+        position: absolute;
+        left: 220px;
+        top: 50px;
+    }
+
+    .sidebar .contact-items {
+        position: absolute;
+        left: 200px;
+        top: 80px;
+    }
+}
+
+@media only screen and (min-width: 980px) {
+    .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 200px;
+    }
+
+    .content {
+        position: absolute;
+        left: 200px;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+    }
 }
 
 .sidebar .profile {
@@ -65,12 +111,7 @@ body {
 }
 
 .content {
-    position: absolute;
-    left: 200px;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    margin: auto;
+
     padding: 20px;
     color: %darkest%;
     font-family: "Open Sans Condensed";

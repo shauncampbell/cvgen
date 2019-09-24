@@ -4,12 +4,12 @@ plugins {
 }
 
 node {
-    version = "9.2.0"
-    npmVersion = "6.4.1"
+    version = "10.16.3"
+    npmVersion = "6.9.0"
     download = true
 }
 
 jar.dependsOn "npm_run_build"
 jar {
-    from "dist/webapp" into "static"
+    from "dist" into "static"
 }
