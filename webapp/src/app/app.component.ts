@@ -7,6 +7,7 @@ export interface DataConfigContent {
   surname: String;
   about: Array<String>;
   skills: Array<DataConfigSkill>;
+  hobbies: Array<String>;
   contacts: DataConfigContacts;
   experience: Array<DataConfigExperience>;
   education: Array<DataConfigEducation>;
@@ -78,6 +79,7 @@ export class AppComponent {
       surname: "",
       about: [],
       skills: [],
+      hobbies: [],
       contacts: {
         address: {
           city: "",
