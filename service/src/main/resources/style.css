@@ -1,6 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Chivo:300,300i,400,400i,700,700i,900,900i|Saira+Extra+Condensed:100,200,300,400,500,600,700,800|Saira:100,200,300,400,500,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab|Open+Sans+Condensed:300|Roboto&display=swap');
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../../assets/icomoon.eot?awgxnz');
+    src:  url('../../assets/icomoon.eot?awgxnz#iefix') format('embedded-opentype'),
+    url('../../assets/icomoon.ttf?awgxnz') format('truetype'),
+    url('../../assets/icomoon.woff?awgxnz') format('woff'),
+    url('../..//assets/icomoon.svg?awgxnz#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
 
 body {
     background-color: %lighter%;
@@ -127,7 +139,6 @@ body {
     color: %darkest%;
     font-family: "Open Sans Condensed";
     font-weight: lighter;
-
 }
 
 .content .content-block {
@@ -207,4 +218,34 @@ body {
     border-radius: 5px;
     padding: 2px;
     margin: 2px;
+}
+
+/* Icons */
+.icon-home3:before {
+    content: "\e902";
+}
+
+.icon-phone:before {
+    content: "\e942";
+}
+.icon-envelop:before {
+    content: "\e945";
+}
+.icon-github:before {
+    content: "\eab0";
+}
+.icon-linkedin:before {
+    content: "\eac9";
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

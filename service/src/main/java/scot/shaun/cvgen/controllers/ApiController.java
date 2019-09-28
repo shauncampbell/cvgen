@@ -1,5 +1,6 @@
 package scot.shaun.cvgen.controllers;
 
+import com.itextpdf.text.DocumentException;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -37,6 +38,17 @@ public class ApiController
         } catch (IOException e) {
             return ResponseEntity.badRequest()
                                  .body(new HashMap<>());
+        }
+    }
+
+    @RequestMapping(path = "/pdf")
+    public ResponseEntity<byte[]> getPdf()
+    {
+        try {
+            return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF).body(service.getPdfVersion());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest()
+                    .body(e.toString().getBytes());
         }
     }
 }
