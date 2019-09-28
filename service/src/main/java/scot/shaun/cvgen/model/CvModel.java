@@ -4,13 +4,13 @@ import java.util.Map;
 
 public class CvModel {
     private Theme theme;
-    private Map<String, Object> content;
+    private CvContent content;
 
-    public Map<String, Object> getContent() {
+    public CvContent getContent() {
         return content;
     }
 
-    public void setContent(Map<String, Object> content) {
+    public void setContent(CvContent content) {
         this.content = content;
     }
 

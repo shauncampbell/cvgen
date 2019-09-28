@@ -121,9 +121,15 @@ body {
     color: %light%;
 }
 
+h1 a:hover {
+    background-color: %light%;
+    cursor: pointer;
+}
+
 .sidebar .contact-items {
     width: 150px;
-    margin: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
     text-align: left;
 
     font-family: "Open Sans Condensed";
@@ -134,7 +140,6 @@ body {
 }
 
 .content {
-
     padding: 20px;
     color: %darkest%;
     font-family: "Open Sans Condensed";
@@ -159,7 +164,7 @@ body {
 .content .content-block .timeline h1 {
     color: %darkest%;
     font-family: "Josefin Slab";
-    margin-left: 20px;
+    /*margin-left: 20px;*/
 }
 
 .content .content-block h2 {
@@ -187,8 +192,19 @@ body {
     margin-bottom: 0;
 }
 
-.timeline-point {
+.light {
     background-color: %light%;
+}
+
+.lighter {
+    background-color: %lighter%;
+}
+
+.darker {
+    background-color: %darker%;
+}
+
+.timeline-point {
     width: 20px;
     height: 20px;
     border-radius: 10px;
@@ -198,8 +214,15 @@ body {
     margin: 0;
 }
 
+.offset-point {
+    top: 2px;
+}
+
+h1 .timeline-point {
+    left: -20px;
+}
+
 .timeline-point-fill {
-    background-color: %lighter%;
     width: 10px;
     height: 10px;
     border-radius: 5px;

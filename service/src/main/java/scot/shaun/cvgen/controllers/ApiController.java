@@ -1,6 +1,5 @@
 package scot.shaun.cvgen.controllers;
 
-import com.itextpdf.text.DocumentException;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.yaml.snakeyaml.reader.StreamReader;
+import scot.shaun.cvgen.model.CvContent;
 import scot.shaun.cvgen.services.CvService;
 
 import javax.print.attribute.standard.Media;
@@ -34,13 +34,13 @@ public class ApiController
     }
 
     @RequestMapping(path = "/content")
-    public ResponseEntity<Map<String, Object>> getContent()
+    public ResponseEntity<CvContent> getContent()
     {
         try {
             return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(service.getModel().getContent());
         } catch (IOException e) {
             return ResponseEntity.badRequest()
-                                 .body(new HashMap<>());
+                                 .body(new CvContent());
         }
     }
 

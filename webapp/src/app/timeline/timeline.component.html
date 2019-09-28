@@ -1,0 +1,51 @@
+<div class="timeline">
+
+  <!-- About section -->
+  <app-text-section
+    [entries]="data.about"
+    [shouldShow]="this.sectionsVisible.about"
+    [title]="'About Me'"
+    [name]="'about'"
+    (visibilityToggled)="toggleSection($event)"></app-text-section>
+
+  <!-- Skills section -->
+  <app-bullet-list-section
+    [entries]="this.skills"
+    [shouldShow]="this.sectionsVisible.skills"
+    [title]="'Primary Skills'"
+    [name]="'skills'"
+    (visibilityToggled)="toggleSection($event)"></app-bullet-list-section>
+
+  <!-- Experience section -->
+  <app-timeline-section
+    [entries]="experience"
+    [shouldShow]="this.sectionsVisible.experience"
+    [title]="'Professional Experience'"
+    [name]="'experience'"
+    (visibilityToggled)="toggleSection($event)"></app-timeline-section>
+
+  <!-- Education section -->
+  <app-timeline-section
+    [entries]="education"
+    [shouldShow]="this.sectionsVisible.education"
+    [title]="'Education'"
+    [name]="'education'"
+    (visibilityToggled)="toggleSection($event)"></app-timeline-section>
+
+  <!-- Languages section -->
+  <app-bullet-list-section
+    [entries]="this.languages"
+    [shouldShow]="this.sectionsVisible.languages"
+    [title]="'Languages'"
+    [name]="'languages'"
+    (visibilityToggled)="toggleSection($event)"></app-bullet-list-section>
+
+  <!-- Interests section -->
+  <app-bullet-list-section
+    [entries]="this.interests"
+    [shouldShow]="this.sectionsVisible.interests"
+    [title]="'Personal Interests'"
+    [name]="'interests'"
+    (visibilityToggled)="toggleSection($event)"></app-bullet-list-section>
+
+</div>

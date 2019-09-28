@@ -1,8 +1,6 @@
 package scot.shaun.cvgen.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfWriter;
 import com.yahoo.platform.yui.compressor.CssCompressor;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.StringBuilderWriter;
@@ -13,11 +11,19 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHttpRequest;
 import org.apache.http.util.EntityUtils;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDType0Font;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import scot.shaun.cvgen.model.CvContent;
 import scot.shaun.cvgen.model.CvModel;
 import scot.shaun.cvgen.model.Theme;
+import scot.shaun.cvgen.util.CVPdfWriter;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -102,27 +108,10 @@ public class CvService
                 return writer.toString();
     }
 
-    public byte[] getPdfVersion() throws DocumentException, IOException {
-        Document document = new Document();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        PdfWriter.getInstance(document, baos);
-
-        document.open();
-
-        CvModel model = getModel();
-
-        Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 32, BaseColor.BLACK);
-        Font smaller = FontFactory.getFont(FontFactory.HELVETICA, 20, BaseColor.BLACK);
-        document.add(new Chunk(model.getContent().get("forename") + " " + model.getContent().get("surname"), font));
-        document.add(Chunk.NEWLINE);
-        document.add(new Chunk("Software Engineer", smaller));
-
-//        document.add(chunk);
-
-        document.close();
-
-        return baos.toByteArray();
+    public byte[] getPdfVersion() throws IOException {
+        return new CVPdfWriter(getModel()).getPdf();
     }
+
 
 
 }

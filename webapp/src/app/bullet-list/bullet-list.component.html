@@ -1,0 +1,3 @@
+<ul>
+  <li *ngFor="let entry of entries"><strong *ngIf="entry.title != null">{{entry.title}}: </strong><span *ngFor="let s of entry.values; index as i">{{ i !== 0 ? ', ' : '' }}{{s}}</span></li>
+</ul>

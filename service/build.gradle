@@ -31,6 +31,7 @@ dependencies {
     compile(project(":webapp"))
     compile('commons-io:commons-io:2.4')
     compile group: 'com.yahoo.platform.yui', name: 'yuicompressor', version: '2.4.8'
-    compile('com.itextpdf:itextpdf:5.5.10')
+//    compile('com.itextpdf:itextpdf:5.5.10')
+    compile('org.apache.pdfbox:pdfbox:2.0.4')
     compile('org.apache.httpcomponents:httpclient:4.5.+')
 }

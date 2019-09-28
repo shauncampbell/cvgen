@@ -1,0 +1,4 @@
+<div>
+  <h1><div class="timeline-point darker offset-point"><div class="timeline-point-fill lighter"></div></div><a name="{{ name }}"  (click)="visibilityToggled.emit(name);">{{ title }}</a></h1>
+  <app-bullet-list [hidden]="!this.shouldShow" [entries]="this.entries"></app-bullet-list>
+</div>
