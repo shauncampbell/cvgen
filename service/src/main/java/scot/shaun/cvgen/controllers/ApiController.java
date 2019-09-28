@@ -3,10 +3,13 @@ package scot.shaun.cvgen.controllers;
 import com.itextpdf.text.DocumentException;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.yaml.snakeyaml.reader.StreamReader;
 import scot.shaun.cvgen.services.CvService;
 
@@ -50,5 +53,19 @@ public class ApiController
             return ResponseEntity.badRequest()
                     .body(e.toString().getBytes());
         }
+    }
+
+    @RequestMapping(path = "/refresh", method = RequestMethod.POST)
+    public ResponseEntity<Void> refreshFromGitCommit(@RequestBody Map<String, Object> event)
+    {
+        System.out.println(event != null ? event.toString() : "No event body");
+
+        try {
+            service.refreshData();
+        } catch (IOException e) {
+            e.printStackTrace();
+            ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok().build();
     }
 }

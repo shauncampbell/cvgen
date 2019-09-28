@@ -36,10 +36,13 @@ public class CvService
         if (null != model) {
             return model;
         }
-        synchronized (OBJECT) {
-            if (null != model) {
-                return model;
-            }
+
+        refreshData();
+
+        return model;
+    }
+
+    public void refreshData() throws IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("https://raw.githubusercontent.com/shauncampbell/curriculum-vitae/master/shauncampbell.json");
         CloseableHttpResponse response1 = httpclient.execute(httpGet);
@@ -55,9 +58,6 @@ public class CvService
         } finally {
             response1.close();
         }
-        }
-
-        return model;
     }
 
     public String generateStylesheet() throws IOException {
