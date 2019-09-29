@@ -18,6 +18,7 @@ export interface TimelineItem {
 })
 export class TimelineItemComponent implements OnInit {
   @Input() item: TimelineItem;
+  shouldShowDetails = true;
   constructor() { }
 
   ngOnInit() {

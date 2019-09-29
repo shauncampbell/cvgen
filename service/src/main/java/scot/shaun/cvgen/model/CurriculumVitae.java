@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CvContent
+public class CurriculumVitae
 {
     private String forename;
     private String surname;
@@ -14,8 +14,31 @@ public class CvContent
     private List<Skill> skills;
     private List<Employment> experience;
     private List<Education> education;
-    private List<String> hobbies;
+    private List<Hobby> hobbies;
     private List<Language> languages;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class Hobby
+    {
+        private String hobby;
+        private String description;
+
+        public String getHobby() {
+            return hobby;
+        }
+
+        public void setHobby(String hobby) {
+            this.hobby = hobby;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+    }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ContactInformation
@@ -61,8 +84,18 @@ public class CvContent
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ContactAddress
     {
+        private String street;
         private String city;
         private String province;
+        private String postalCode;
+
+        public String getStreet() {
+            return street;
+        }
+
+        public void setStreet(String street) {
+            this.street = street;
+        }
 
         public String getCity() {
             return city;
@@ -78,6 +111,14 @@ public class CvContent
 
         public void setProvince(String province) {
             this.province = province;
+        }
+
+        public String getPostalCode() {
+            return postalCode;
+        }
+
+        public void setPostalCode(String postalCode) {
+            this.postalCode = postalCode;
         }
     }
 
@@ -219,9 +260,18 @@ public class CvContent
     {
         private String title;
         private String startDate;
+        private String endDate;
         private List<String> skills;
         private List<String> mainDuties;
         private Employer employer;
+
+        public String getEndDate() {
+            return endDate != null ? endDate : "Present";
+        }
+
+        public void setEndDate(String endDate) {
+            this.endDate = endDate;
+        }
 
         public String getTitle() {
             return title;
@@ -416,11 +466,11 @@ public class CvContent
         this.education = education;
     }
 
-    public List<String> getHobbies() {
+    public List<Hobby> getHobbies() {
         return hobbies;
     }
 
-    public void setHobbies(List<String> hobbies) {
+    public void setHobbies(List<Hobby> hobbies) {
         this.hobbies = hobbies;
     }
 

@@ -9,11 +9,16 @@ export interface DataConfigContent {
   surname: String;
   about: Array<String>;
   skills: Array<DataConfigSkill>;
-  hobbies: Array<String>;
+  hobbies: Array<Hobby>;
   contacts: DataConfigContacts;
   experience: Array<DataConfigExperience>;
   education: Array<DataConfigEducation>;
   languages: Array<Language>;
+}
+
+export interface Hobby {
+  hobby: string;
+  description: string;
 }
 
 export interface Language {
@@ -136,7 +141,7 @@ export class AppComponent {
       this.data = data;
 
       for (let entry of  data.languages) {
-        this.languages.push({ title: entry.language, values: [ entry.note ]});
+        this.languages.push({ title: entry.language, values: entry.note ? [ entry.note ] : [] });
       }
 
       for (let entry of data.skills) {
@@ -144,13 +149,15 @@ export class AppComponent {
       }
 
       for (let entry of data.hobbies) {
-        this.hobbies.push({ title: null, values: [ entry ]});
+        this.hobbies.push({ title: entry.hobby, values: [ entry.description ]});
       }
 
       for (let entry of data.experience) {
         var duties: Array<BulletListItem> = new Array<BulletListItem>();
-        for (let duty of entry.mainDuties) {
-          duties.push({ title: null, values: [ duty ] });
+        if (entry.mainDuties) {
+          for (let duty of entry.mainDuties) {
+            duties.push({ title: null, values: [ duty ] });
+          }
         }
 
         this.experience.push( {
@@ -166,8 +173,10 @@ export class AppComponent {
 
       for (let entry of data.education) {
         var notes: Array<BulletListItem> = new Array<BulletListItem>();
-        for (let note of entry.notes) {
-          notes.push({ title: null, values: [ note ]});
+        if (entry.notes) {
+          for (let note of entry.notes) {
+            notes.push({ title: null, values: [ note ]});
+          }
         }
 
         this.education.push( {

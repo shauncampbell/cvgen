@@ -1,8 +1,8 @@
 <div>
-  <div class="timeline-point light"><div class="timeline-point-fill lighter"></div></div>
-  <h2>{{ item.title }}</h2>
+  <div class="timeline-point light"><div class="timeline-point-fill" [ngClass]="shouldShowDetails ? 'lighter' : 'light'"></div></div>
+  <h2><a (click)="shouldShowDetails = !shouldShowDetails">{{ item.title }}</a></h2>
   <h3><strong>{{ item.organisation }}</strong>, {{ item.location }}</h3>
   <h4>{{ item.startDate }} - {{ item.endDate ? item.endDate : "Present" }}</h4>
   <div class="pill-list"><span class="pill" *ngFor="let tag of item.tags">{{tag}}</span></div>
-  <app-bullet-list [entries]="item.bulletItems"></app-bullet-list>
+  <app-bullet-list [entries]="item.bulletItems" [hidden]="!shouldShowDetails"></app-bullet-list>
 </div>

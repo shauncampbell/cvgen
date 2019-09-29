@@ -1,23 +1,18 @@
 package scot.shaun.cvgen.controllers;
 
-import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.yaml.snakeyaml.reader.StreamReader;
-import scot.shaun.cvgen.model.CvContent;
+import scot.shaun.cvgen.model.CurriculumVitae;
 import scot.shaun.cvgen.services.CvService;
+import scot.shaun.cvgen.util.PdfWriterException;
 
-import javax.print.attribute.standard.Media;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.Charset;
-import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -34,13 +29,13 @@ public class ApiController
     }
 
     @RequestMapping(path = "/content")
-    public ResponseEntity<CvContent> getContent()
+    public ResponseEntity<CurriculumVitae> getContent()
     {
         try {
             return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(service.getModel().getContent());
         } catch (IOException e) {
             return ResponseEntity.badRequest()
-                                 .body(new CvContent());
+                                 .body(new CurriculumVitae());
         }
     }
 
@@ -67,5 +62,11 @@ public class ApiController
             ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok().build();
+    }
+
+    @ExceptionHandler(PdfWriterException.class)
+    public ResponseEntity<String> produceErrorMessage(PdfWriterException exception)
+    {
+        return ResponseEntity.status(500).body(exception.getMessage());
     }
 }

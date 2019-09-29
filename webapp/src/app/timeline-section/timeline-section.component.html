@@ -1,4 +1,4 @@
 <div>
-  <h1><div class="timeline-point darker offset-point"><div class="timeline-point-fill lighter"></div></div><a name="{{ name }}"  (click)="visibilityToggled.emit(name);">{{ title }}</a></h1>
+  <h1><div class="timeline-point darker offset-point"><div class="timeline-point-fill" [ngClass]="this.shouldShow ? 'lighter' : 'darker'"></div></div><a name="{{ name }}"  (click)="visibilityToggled.emit(name);">{{ title }}</a></h1>
   <app-timeline-item *ngFor="let entry of entries" [item]="entry" [hidden]="!this.shouldShow"></app-timeline-item>
 </div>

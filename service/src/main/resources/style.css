@@ -126,6 +126,31 @@ h1 a:hover {
     cursor: pointer;
 }
 
+h2 a:hover {
+    background-color: %light%;
+    cursor: pointer;
+}
+
+.download-button {
+    float: right;
+    background-color: #fff;
+    border: 1px solid #000;
+    margin-top: 0;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.download-button:visited {
+    color: #000;
+}
+
+.download-button:hover {
+    background-color: %light%;
+    cursor: pointer;
+}
+
 .sidebar .contact-items {
     width: 150px;
     margin-left: 20px;
@@ -259,6 +284,15 @@ h1 .timeline-point {
 }
 .icon-linkedin:before {
     content: "\eac9";
+}
+.icon-download:before {
+    content: "\e95e";
+}
+.icon-earth:before {
+    content: "\e9ca"
+}
+.icon-pdf:before {
+    content: "\eadf"
 }
 
 [class^="icon-"], [class*=" icon-"] {

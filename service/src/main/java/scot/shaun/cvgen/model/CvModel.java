@@ -1,16 +1,14 @@
 package scot.shaun.cvgen.model;
 
-import java.util.Map;
-
 public class CvModel {
     private Theme theme;
-    private CvContent content;
+    private CurriculumVitae content;
 
-    public CvContent getContent() {
+    public CurriculumVitae getContent() {
         return content;
     }
 
-    public void setContent(CvContent content) {
+    public void setContent(CurriculumVitae content) {
         this.content = content;
     }
 
