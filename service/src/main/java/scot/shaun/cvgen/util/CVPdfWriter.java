@@ -130,7 +130,7 @@ public class CVPdfWriter extends PdfWriter
             paragraph(s);
             linePosition -= 15;
         }
-        linePosition -= 15;
+        linePosition -= 10;
     }
 
     private void writeEducationSection(String header, List<CurriculumVitae.Education> education) throws IOException {
@@ -165,7 +165,7 @@ public class CVPdfWriter extends PdfWriter
                 linePosition -= 10;
             }
         }
-        linePosition -= 15;
+        linePosition -= 10;
     }
 
     private void writeTextSection(String header, List<String> paragraphs) throws IOException {

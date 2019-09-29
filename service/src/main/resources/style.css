@@ -164,6 +164,21 @@ h2 a:hover {
     color: %lighter%;
 }
 
+.sidebar .contact-items .contact-item a {
+    color: %lighter%;
+    text-decoration: none;
+}
+
+.sidebar .contact-items .contact-item a:visited {
+    color: %lighter%;
+    text-decoration: none;
+}
+
+.sidebar .contact-items .contact-item a:hover {
+    color: %lighter%;
+    text-decoration: underline;
+}
+
 .content {
     padding: 20px;
     color: %darkest%;

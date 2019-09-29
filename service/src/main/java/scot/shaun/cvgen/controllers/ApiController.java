@@ -22,50 +22,35 @@ public class ApiController
     @Autowired
     private CvService service;
 
-
     @RequestMapping(path = "/stylesheet")
     public ResponseEntity<String> getStylesheet() throws IOException {
         return ResponseEntity.ok().contentType(MediaType.parseMediaType("text/css")).body(service.generateStylesheet());
     }
 
     @RequestMapping(path = "/content")
-    public ResponseEntity<CurriculumVitae> getContent()
-    {
-        try {
-            return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(service.getModel().getContent());
-        } catch (IOException e) {
-            return ResponseEntity.badRequest()
-                                 .body(new CurriculumVitae());
-        }
+    public ResponseEntity<CurriculumVitae> getContent() throws IOException {
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(service.getModel().getContent());
     }
 
     @RequestMapping(path = "/pdf")
-    public ResponseEntity<byte[]> getPdf()
-    {
-        try {
-            return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF).body(service.getPdfVersion());
-        } catch (Exception e) {
-            return ResponseEntity.badRequest()
-                    .body(e.toString().getBytes());
-        }
+    public ResponseEntity<byte[]> getPdf() throws IOException {
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF).body(service.getPdfVersion());
     }
 
     @RequestMapping(path = "/refresh", method = RequestMethod.POST)
-    public ResponseEntity<Void> refreshFromGitCommit(@RequestBody Map<String, Object> event)
-    {
-        System.out.println(event != null ? event.toString() : "No event body");
-
-        try {
-            service.refreshData();
-        } catch (IOException e) {
-            e.printStackTrace();
-            ResponseEntity.badRequest().build();
-        }
+    public ResponseEntity<Void> refreshFromGitCommit(@RequestBody Map<String, Object> event) throws IOException {
+        service.refreshData();
         return ResponseEntity.ok().build();
     }
 
     @ExceptionHandler(PdfWriterException.class)
     public ResponseEntity<String> produceErrorMessage(PdfWriterException exception)
+    {
+        return ResponseEntity.status(500).body(exception.getMessage());
+    }
+
+    @ExceptionHandler(IOException.class)
+    public ResponseEntity<String> produceErrorMessage(IOException exception)
     {
         return ResponseEntity.status(500).body(exception.getMessage());
     }

@@ -11,8 +11,8 @@
       <div class="contact-item" *ngFor="let email of data.contacts.email"><i class="icon-envelop"></i> {{ email.recipient }}@{{ email.domain }}</div>
       <div class="contact-item" *ngFor="let phone of data.contacts.telephone"><i class="icon-phone"></i> +{{ phone.number.country }} ({{ phone.number.area}}) {{ phone.number.number }}</div>
       <div class="contact-item" *ngFor="let link of data.contacts.links">
-        <span *ngIf="link.type === 'github'"><i class="icon-github"></i> {{ link.value }}</span>
-        <span *ngIf="link.type === 'linkedin'"><i class="icon-linkedin"></i> {{ link.value }}</span>
+        <span *ngIf="link.type === 'github'"><i class="icon-github"></i> <a href="https://github.com/{{ link.value }}"> {{ link.value }} </a></span>
+        <span *ngIf="link.type === 'linkedin'"><i class="icon-linkedin"></i> <a href="https://linkedin.com/in/{{ link.value }}"> {{ link.value }} </a></span>
       </div>
     </div>
   </div>
